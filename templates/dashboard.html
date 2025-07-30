@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+<body>
+  <h1>Welcome, {{ current_user.username }} {% if current_user.is_admin %}(Admin){% endif %}</h1>
+  <a href="{{ url_for('report') }}">Report Bug</a> |
+  <a href="{{ url_for('logout') }}">Logout</a>
+  <h2>Bugs</h2>
+  <table border="1" cellpadding="5" cellspacing="0">
+    <tr>
+      <th>ID</th><th>Title</th><th>Priority</th><th>Status</th><th>Assignee</th>
+      {% if current_user.is_admin %}<th>Assign</th><th>Update Status</th>{% endif %}
+    </tr>
+    {% for bug in bugs %}
+    <tr>
+      <td>{{ bug.id }}</td>
+      <td>{{ bug.title }}</td>
+      <td>{{ bug.priority }}</td>
+      <td>{{ bug.status }}</td>
+      <td>{{ bug.assignee.username if bug.assignee else 'Unassigned' }}</td>
+      {% if current_user.is_admin %}
+      <td>
+        <form method="POST" action="{{ url_for('assign', bug_id=bug.id) }}">
+          <select name="assignee_id">
+            <option value="">Unassign</option>
+            {% for user in users %}
+              <option value="{{ user.id }}" {% if bug.assignee and bug.assignee.id == user.id %}selected{% endif %}>{{ user.username }}</option>
+            {% endfor %}
+          </select>
+          <button type="submit">Assign</button>
+        </form>
+      </td>
+      <td>
+        <form method="POST" action="{{ url_for('update_status', bug_id=bug.id) }}">
+          <select name="status">
+            <option value="Open" {% if bug.status == 'Open' %}selected{% endif %}>Open</option>
+            <option value="Fixed" {% if bug.status == 'Fixed' %}selected{% endif %}>Fixed</option>
+          </select>
+          <button type="submit">Update</button>
+        </form>
+      </td>
+      {% endif %}
+    </tr>
+    {% endfor %}
+  </table>
+</body>
+</html>

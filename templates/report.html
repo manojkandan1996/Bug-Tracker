@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en">
+<head><title>Report Bug</title></head>
+<body>
+  <h1>Report Bug</h1>
+  <form method="POST">
+    <input name="title" placeholder="Title" required><br>
+    <textarea name="description" placeholder="Description" required></textarea><br>
+    <select name="priority" required>
+      <option value="Low">Low</option>
+      <option value="Medium" selected>Medium</option>
+      <option value="High">High</option>
+    </select><br>
+    <button type="submit">Report</button>
+  </form>
+  <a href="{{ url_for('dashboard') }}">Back to Dashboard</a>
+</body>
+</html>

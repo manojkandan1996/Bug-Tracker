@@ -1,0 +1,134 @@
+/* Reset some defaults */
+body, h1, h2, table, form, input, select, textarea, button {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  box-sizing: border-box;
+}
+
+/* Body */
+body {
+  background: #f5f7fa;
+  color: #333;
+  padding: 20px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* Headings */
+h1, h2 {
+  margin-bottom: 20px;
+  color: #222;
+}
+
+/* Links */
+a {
+  color: #007bff;
+  text-decoration: none;
+  margin-right: 15px;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Table styling */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 30px;
+  background: white;
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+}
+
+th, td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: #007bff;
+  color: white;
+  font-weight: 600;
+}
+
+tr:hover {
+  background-color: #f1f7ff;
+}
+
+/* Forms */
+form {
+  background: white;
+  padding: 20px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.05);
+  margin-bottom: 30px;
+  border-radius: 5px;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+select,
+textarea {
+  width: 100%;
+  padding: 10px 12px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+  resize: vertical;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus,
+select:focus,
+textarea:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+/* Buttons */
+button {
+  background-color: #007bff;
+  border: none;
+  color: white;
+  padding: 10px 18px;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* Flash messages (optional) */
+.flash {
+  padding: 10px 15px;
+  margin-bottom: 20px;
+  border-radius: 4px;
+}
+
+.flash-success {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.flash-danger {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+.flash-warning {
+  background-color: #fff3cd;
+  color: #856404;
+}
+
+.flash-info {
+  background-color: #d1ecf1;
+  color: #0c5460;
+}
